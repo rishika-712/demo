@@ -1,14 +1,83 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Image Example</title>
+    <style>
+        #mainBlock {
+            border: 2px solid red;
+            width: 550px;
+            height: 550px;
+        }
+        .topBlock {
+            width: 100%;
+            height: 80%;
+        }
+        .bottomBlock {
+            width: 100%;
+            height: 20%;
+            text-align: center;
+        }
+        .bottomBlock h1 {
+            margin: 0;
+        }
+        .bottomBlock button {
+            border: none;
+            padding: 20px;
+            background-color: dodgerblue;
+            color: white;
+        }
+    </style>
+</head>
 <body>
-    <form>
-        <input type="text" placeholder="name" id="uName"><br>
-        <input type="email" placehoder="email" id="uMail"><br>
-        <input type="password" placeholder="password" id="uPass"><br>
-        <input type="submit"><br>
-    </form>
+    <script>
+        // Create the main container div
+        let mainEle = document.createElement("div");
+        mainEle.setAttribute("id", "mainBlock");
+        mainEle.style.border = "2px solid red";
+        mainEle.style.width = "550px";
+        mainEle.style.height = "550px";
 
-<script src="./dom.js"></script>
+        // Create the top block div
+        let topEle = document.createElement("div");
+        topEle.setAttribute("class", "topBlock");
 
+        // Create the image
+        let image = document.createElement("img");
+        image.src = "https://cdn.pixabay.com/photo/2023/02/09/16/43/cat-7779237_640.jpg";
+        image.style.width = "550px";
+
+        // Create the bottom block div
+        let bottomEle = document.createElement("div");
+        bottomEle.setAttribute("class", "bottomBlock");
+
+        // Create the heading
+        let h1 = document.createElement("h1");
+        h1.innerText = "CAT";
+        h1.style.textAlign = "center";
+
+        // Create the button
+        let btn = document.createElement("button");
+        btn.innerText = "View More";
+        btn.style.border = "none";
+        btn.style.padding = "20px";
+        btn.style.backgroundColor = "dodgerblue";
+        btn.style.color = "white";
+
+        // Append the heading and button to the bottom block
+        bottomEle.appendChild(h1);
+        bottomEle.appendChild(btn);
+
+        // Append the image to the top block
+        topEle.appendChild(image);
+
+        // Append the top and bottom blocks to the main container
+        mainEle.appendChild(topEle);
+        mainEle.appendChild(bottomEle);
+
+        // Append the main container to the body of the document
+        document.body.appendChild(mainEle);
+    </script>
 </body>
 </html>
-
