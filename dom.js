@@ -1,250 +1,169 @@
-// console.log(window);
-// console.log(document);
+// Array of Employee Objects
+// Employee Data (Array of Objects)
+// Employee Data (Array of Objects)
+// Array of Employee Objects
+// const employees = [
+//     {
+//         empId: 101,
+//         empName: "John Doe",
+//         empCompany: "Tech Corp",
+//         empSalary: 75000,
+//         empAddress: { empCity: "New York", empArea: "Manhattan" }
+//     },
+//     {
+//         empId: 102,
+//         empName: "Jane Smith",
+//         empCompany: "Innovate Ltd",
+//         empSalary: 68000,
+//         empAddress: { empCity: "Los Angeles", empArea: "Beverly Hills" }
+//     },
+//     {
+//         empId: 103,
+//         empName: "Alice Johnson",
+//         empCompany: "Soft Solutions",
+//         empSalary: 72000,
+//         empAddress: { empCity: "San Francisco", empArea: "Downtown" }
+//     }
+// ];
 
-// let element = document.getElementById("demo");
-// element.innerText = "G+"
-// console.log(element);
+// // Function to Create and Insert Table into the DOM
+// function generateTable(data) {
+//     const tableContainer = document.getElementById("table-container");
 
-// let ele = document.getElementById("test");
-// // ele.innerText= "<h1>Header</h1>"
-// ele.innerHTML = "<h1>Header</h1>"
-// console.log(ele);
+//     // Create Table Element
+//     const table = document.createElement("table");
+//     table.border = "1";
 
-//! 
-// let ele = document.getElementsByClassName("test");
-// console.log(ele);
-// console.log(Array.isArray(ele));
-// ele[0].innerText="Hello"
-// // ele[0].style.backgroundColor="tomato"
+//     // Create Table Header
+//     const thead = document.createElement("thead");
+//     const headerRow = document.createElement("tr");
+//     const headers = ["Emp ID", "Name", "Company", "Salary", "City", "Area"];
 
-// //!spread operator :- it will takeout each and every value from the original array 
-// //! and store it inisde one more new array(pure array).
-// //? syntax :- [...variable];
-// let x = [...ele];
-// // console.log(x , Array.isArray(x));
-// x.map(element=>{
-//     // console.log(element);
-//     element.style.backgroundColor="orange"
-// })
+//     headers.forEach(headerText => {
+//         const th = document.createElement("th");
+//         th.textContent = headerText;
+//         headerRow.appendChild(th);
+//     });
+//     thead.appendChild(headerRow);
+//     table.appendChild(thead);
 
-//! 
+//     // Create Table Body
+//     const tbody = document.createElement("tbody");
 
-// let ele = document.getElementsByTagName("div");
-// console.log(ele);
+//     data.forEach(emp => {
+//         const row = document.createElement("tr");
 
-//! 
+//         // Employee Properties
+//         const values = [emp.empId, emp.empName, emp.empCompany, emp.empSalary, emp.empAddress.empCity, emp.empAddress.empArea];
 
-// let ele = document.getElementsByName("formData");
-// // console.log(ele , Array.isArray(ele));
-// [...ele].map(inp=>{
-//     console.log(inp.value);
-// })
+//         values.forEach(value => {
+//             const td = document.createElement("td");
+//             td.textContent = value;
+//             row.appendChild(td);
+//         });
 
-//! 
-// let ele = document.querySelector("#mru");
-// console.log(ele);
+//         tbody.appendChild(row);
+//     });
 
-// let ele = document.querySelector(".test");
-// console.log(ele);
+//     table.appendChild(tbody);
+//     tableContainer.appendChild(table);
+// }
 
-// let ele = document.querySelectorAll(".test");
-// console.log(ele);
-
-
-
-// let btn = document.querySelector("#btn");
-//! addEventListner("event" ,()=>{})
-    // btn.addEventListener("click",()=>{
-    //     // console.log("button clicked");
-    //     // alert("hi")
-    //     document.body.style.backgroundColor="tomato"
-    // })
-
-    // let btn = document.querySelector("#btn");
-    // btn.addEventListener("dblclick",()=>{
-    //     console.log("double clicked");
-    // })
-
-
-    // let divBlock = document.getElementById("divBlock");
-    // divBlock.addEventListener("mouseover",()=>{
-    //     document.body.style.backgroundColor="yellow"
-    //     divBlock.style.backgroundColor="blue"
-    // })
-
-    // divBlock.addEventListener("mouseleave",()=>{
-    //     document.body.style.backgroundColor="orange"
-    //     divBlock.style.backgroundColor="aqua"
-    // })
-
-
-    // let inp =document.getElementById("inp");
-    // inp.addEventListener("keydown",()=>{
-    //     console.log("keydown");
-    // })
-
-    // inp.addEventListener("keyup",()=>{
-    //     console.log("keyup");
-    // })
-
-    // let bgColor = document.querySelectorAll(".bgColor");
-    // // console.log(bgColor);
-    // [...bgColor].map((element)=>{
-    //     // console.log(element);
-    //     element.addEventListener("mouseover",()=>{
-    //         // console.log(element.innerText);
-    //         element.style.backgroundColor=element.innerText;
-    //     });
-    //     element.addEventListener("mouseleave",()=>{
-    //         // console.log(element.innerText);
-    //         element.style.backgroundColor="transparent";
-    //     });
-    // })
-
-
-// let ele = document.createElement("h1");
-// ele.innerText = "Dynamic creation of html element";
-// // ele.setAttribute("id" , "demo");
-// ele.id = "demo";
-
-// // ele.removeAttribute("id")
-// // console.log(ele);
-
-// let image = document.createElement("img");
-// image.src = "./3606208.jpg";
-// console.log(image);
-
-// document.body.appendChild(ele);
-// document.body.appendChild(image)
+// // Call Function to Render Table
+// generateTable(employees);
 
 
 
-// let form = document.querySelector("form");
-// let username = document.getElementById("uName");
-// let mail = document.getElementById("uMail");
-// let psw = document.getElementById("uPass");
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let isValid = true;
 
-// form.addEventListener("submit",(event)=>{
-//     event.preventDefault();
-//     // console.log(event);
-//     // console.log("form submitted");
-//     let uname = username.value;
-//     let uemail = mail.value;
-//     let upass = psw.value;
-//    let userDetails={
-//     uname , uemail, upass
-//    }
-//    console.log(userDetails);
-//    localStorage.setItem("userData" , JSON.stringify(userDetails))
-// })
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
 
-// // localStorage.clear();
+            document.getElementById("usernameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            document.getElementById("confirmPasswordError").innerText = "";
 
-// ! 
+            if (username.trim() === "") {
+                document.getElementById("usernameError").innerText = "Username is required";
+                isValid = false;
+            }
 
-// let vd= document.createElement("video");
-// vd.setAttribute("src" ,"./video123.mp4");
-// vd.setAttribute("controls" , "controls");
-// console.log(vd);
+            if (email.trim() === "" || !email.includes("@")) {
+                document.getElementById("emailError").innerText = "Valid email is required";
+                isValid = false;
+            }
 
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+                isValid = false;
+            }
 
-// document.body.appendChild(vd)
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
+                isValid = false;
+            }
 
-// let h1 = document.createElement("h1");
-// h1.setAttribute("id","demo")
-// h1.innerText = "MRU Batch3 JS session";
-// console.log(h1);
-// h1.removeAttribute("id");
-
-// document.body.appendChild(h1);
-
-
-// ! 
-// let mainEle = document.createElement("div");
-// mainEle.setAttribute("id","mainBlock");
-// mainEle.style.border="2px solid red";
-// mainEle.style.width="550px";
-// mainEle.style.height="550px";
-
-// console.log(mainEle);
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+        });
 
 
-// let topEle = document.createElement("div");
-// topEle.setAttribute("class","topBlock");
-// // console.log(topEle);
 
-// let image = document.createElement("img");
-// image.src="https://cdn.pixabay.com/photo/2023/02/09/16/43/cat-7779237_640.jpg";
-// image.style.width="550px"
 
-// let bottomEle = document.createElement("div");
-// bottomEle.setAttribute("class","bottomBlock");
-// // console.log(bottomEle);
 
-// let h1 = document.createElement("h1");
-// h1.innerText = "CAT";
-// h1.style.textAlign="center"
 
-// let btn = document.createElement("button");
-// btn.innerText="View More";
-// btn.style.border="none";
-// btn.style.padding="20px";
-// btn.style.backgroundColor="dodgerblue";
-// btn.style.color="white";
 
-// bottomEle.appendChild(h1);
-// bottomEle.appendChild(btn);
 
-// topEle.appendChild(image);
-// mainEle.appendChild(topEle);
-// mainEle.appendChild(bottomEle);
-// document.body.appendChild(mainEle);
 
-// ! 
 
-let form = document.querySelector("form");
 
-let username = document.getElementById("uName");
-let password = document.getElementById("uPass");
-let check = document.getElementById("check");
-let show = document.getElementById("show");
 
-let gender = document.getElementsByName("gender");
 
-check.addEventListener("click",event=>{
-    if(event.target.checked == true){
-        password.setAttribute("type" , "text");
-        show.innerText = "hide password";
-    }else{
-        password.setArrtibute("type" , "password");
-        show.innerText = "show password";
-    }
-})
-    
 
-form.addEventListener("submit" , event=>{
-    event.preventDefault();
-    let un = username.value;
-    let up = password.value;
-    let gen = "";
 
-    for(let i=0;i<=gender.length-1;i++){
-        if(gender[i].checked == true){
-            gen = gender[i].value;
+ 
 
-        }
-    }
-    let userDetails={
-        username:un,
-        password:up,
-        gender:gen
-    }
-    console.log(userDetails);
-    sessionStorage.setItem("userData" ,
-        JSON.stringify(userDetails)
-    )
 
-    
-})
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
